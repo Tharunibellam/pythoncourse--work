@@ -23,3 +23,46 @@ print("Less than or Equal to(<=):",a<=b)  #Less than or Equal to(<=): True
 
 #3.Assignment Operators
 
+# Initial value
+x = 10
+print("Initial x:",x)
+
+x += 5
+print("x += 5:",x)  #x += 5: 15
+
+x -= 3
+print("x -= 3:",x)  #x -= 3: 12
+
+x *= 2
+print("x *= 2:",x)  #x *= 2: 24
+
+x /= 4 
+print("x /= 4:",x)   #x /= 4: 6.0
+
+x = 15
+x //= 2
+print("x //= 2:",x)  #x //= 2: 7
+
+x %= 5
+print("x %= 4:",x)   #x %= 4: 2
+
+x **= 3
+print("x **= 3:",x)  #x **= 3: 8
+
+
+#4.Logical operators
+
+x = 10
+y = 20
+print(x > 5 and y < 30) #True (Both condition are conition) 
+
+print(x > 15 or y < 30)  #True (Least one condition is True)
+
+print(not (x > 5))      #False:(Reverses the True condition)
+
+
+#5.Membership operators
+
+student = ["name", "email", "brach", "age"]
+print("name" in student)     #True (name is in the student)
+print("year" not in student)  #True (year is not in student)
