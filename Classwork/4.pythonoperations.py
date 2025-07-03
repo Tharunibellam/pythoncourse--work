@@ -66,3 +66,19 @@ print(not (x > 5))      #False:(Reverses the True condition)
 student = ["name", "email", "brach", "age"]
 print("name" in student)     #True (name is in the student)
 print("year" not in student)  #True (year is not in student)
+
+#6.Identity operators
+
+
+a=[1,2,3,4,5]
+b=[1,2,3,4,5]
+c=[1,2,3,4,5]
+
+b=a
+print(a is b)      #True(Both refer to the same)
+print(a is c)      #Flase(Both refer to the different objects)
+print(b is c)      #Flase(Both refer to the different objects)
+print(a is not b)  #Flase
+print(b is not c)  #True
+
+
