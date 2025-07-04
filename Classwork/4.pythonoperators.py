@@ -81,4 +81,28 @@ print(b is c)      #Flase(Both refer to the different objects)
 print(a is not b)  #Flase
 print(b is not c)  #True
 
+#7.Bitwise operators
 
+a = 10   #Binary: 1010
+b = 4    #Binary: 0100
+
+#Bitwise AND
+print(a & b)   #1010 & 0100 = 0000 = 0
+
+#Bitwise OR
+print(a | b)   #1010 | 0100 = 1110 = 14
+
+#Bitwise XOR
+print(a ^ b)   #1010 ^ 0100 = 1110 = 14
+
+#Bitwise NOT
+print(~a)      #1010 = 1010 0101 = 0101    -11
+print(~b)      #0100 = 0100 1011 = 0101    -5
+
+#Left Shift
+print(a << 2)   #1010     101000   40
+print(b << 2)   #0100     010000   16
+
+#Right Shift
+print(a >> 3)  #1010      00001    1
+print(b >> 3)  #0100      00000    0
