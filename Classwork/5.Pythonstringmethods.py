@@ -162,6 +162,170 @@ print(text.count('c'))    #3
 print(text.count(' '))    #3
 print(text.count('z'))    #0
 
+#4.String Testing Method(Boolean Result)
+#Startswith()=check the strating
+
+text = "Python String methods"
+print(text.startswith("Python"))    #True
+print(text.startswith("Hello"))     #False
+print(text.startswith("P"))         #True
+
+#Endswith()=check the ends
+
+
+print(text.endswith("methods"))    #True
+print(text.endswith("ds"))         #True
+print(text.endswith("world"))      #Flase
+
+
+#3.isalpha()=true when all the characters are alphabetic(no numbers or symbols)
+
+text = "python"
+print(text.isalpha())  #True(It not allowing captial)
+
+text1 = "python23"
+print(text1.isalpha())  #False(It not numbers)
+
+#4.isalnum()=return true if all characters are alphanumeric(letters or numbers,no symbols)
+ 
+id = "User123"
+print(id.isalnum())   #True
+
+id2 = "User@123"
+print(id2.isalnum())  #False
+
+#5.islower()=Returns true if all characters are lowercase letters.
+
+text = "python string methods"
+print(text.islower())    #True
+
+text = "Python"
+print(text.islower())    #False
+
+#6.isupper()=Return True if all the characters are uppercase letters
+
+text1 = "EXPLANATION"
+print(text1.isupper())    #True
+
+text2 = "Observation"
+print(text2.isupper())    #False
+
+#7.isspace()=Return True if the string only contains whitespace characters(spaces,tabs,)
+
+space = "   "
+print(space.isspace())   #True
+
+text = "Space"
+print(text.isspace())    #False
+
+#8.istitle()=Return True if the string is in title case()
+
+title = "I am ur bose"
+print(title.istitle())    #False
+
+title = "I Am Ur Bass"
+print(title.istitle())    #True
+
+#9.isidentifier()Return True if the String is a valid python identifier(used as a variable/function name)
+
+a = "123@abc"
+print(a.isidentifier())    #False
+
+b = "abc123"
+print(b.isidentifier())     #True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#5.Replace & Modify Method
+
+#1.Replace(old,new)
+text = "Python is powerful"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#7.Whitespace & Trimmig Method
+
+#Strip(char)=spliting a string into a list using the specified separator(sep)
+
+text = "apple,banana,cherry,grape"
+result1 = text.split(",")   #['apple', 'banana', 'cherry', 'grape']
+result2 = text.split('.')   #is not changeing with other key only it is allowing ","
+print(result1)
+print(result2)
+
+#rsplit(sep)=Splits a string into a list from the right the separator
+
+text = "apple,ball,cat,dog,eye,fun"
+result1 = text.rsplit(",", 2)   #divide according to the number we have given dived to right
+result2 = text.rsplit(",", 3)      
+print(result1)                  #['apple,ball,cat,dog', 'eye', 'fun'] 
+print(result2)                
+
+
+#lsplit(sep)=Splits a string into a list from the left the separator
+text = "apple,ball,cat,dog,eye,fun"
+result1 = text.lsplit(",", 2) 
+result2 = text.lsplit(",", 3) 
+print(result1)
+print(result2)
+
+
+#3.splitlines()=split a string at line breaks(\n)and return a list of lines
+
+text = "apple\nball\ncat\ndog\neye\nfun"
+print(text.splitlines())    #['apple', 'ball', 'cat', 'dog', 'eye', 'fun']
+
+
+
+
+
+
+
+
+
 
 
 
