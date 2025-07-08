@@ -372,20 +372,22 @@ print(t.strip())                                        #python string methods
 
 #lstrip(chars)=Removes leading characters.
 t = "          Hello world           "
-print(t.lstrip())                                        # #Hello world
+print(t.lstrip())                                       #Hello world
 
 
 #rstrip(chars)=Removes trailing characters.
 
-t = "**pythonprogram***"
-print(t.rstrip())                                     
+tuple = "         pythonprogram             "           #        pythonprogram  
+print(tuple.rstrip())                                     
+
+
 #encode(encoding)=Converts the string to bytes.
 
-text = "Hello 🙂"
-print(text.encode())                   #b'Hello \xf0\x9f\x99\x82'     
+text = "Hello नमते你好 café 🙂 "
+print(text.encode())                   #b'Hello \xe0\xa4\xa8\xe0\xa4\xae\xe0\xa4\xa4\xe0\xa5\x87\xe4\xbd\xa0\xe5\xa5\xbd caf\xc3\xa9 \xf0\x9f\x99\x82 '     
 
 
 
 #decode(encoding)=Converts bytes back to string.
 s=text.encode()
-print(s.decode())                     #Hello 🙂
+print(s.decode())                     #Hello नमते你好 café 🙂
