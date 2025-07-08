@@ -186,3 +186,5 @@ print(all(flags))            #False(not all are True)
 
 print(any([]))                #False(empty iterable)
 print(all([]))                #True(vacuous truth)
+
+

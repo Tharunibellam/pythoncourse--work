@@ -234,67 +234,95 @@ print(a.isidentifier())    #False
 b = "abc123"
 print(b.isidentifier())     #True
 
+#Strings (isdecimal()isdigit()isnumberic())
+#ASCII decimal digits
+
+s = '678'
+print(s.isdecimal())         #True
+print(s.isdigit())           #True
+print(s.isnumeric())         #True
+
+#Arabic-Indic digit
+
+s = '٣' '۲'
+print(s.isdecimal())      #True
+print(s.isdigit())        #True
+print(s.isnumeric())      #True
+
+#Superscript 2
+
+s = '²'
+print(s.isdecimal(), s.isdigit(), s.isnumeric())     #False True True
+
+#Fraction one-third
+s = '3/6'
+print(s.isdecimal(), s.isdigit(), s.isnumeric())     #False False False
+
+#Chinese numeral for five
+
+s = ' wǔ '
+print(s.isdecimal(), s.isdigit(), s.isnumeric())     #False False False
+
+#Roman numeral 8
+
+s = 'XIX'
+print(s.isdecimal(), s.isdigit(), s.isnumeric())     #False False False
 
 
+#Alphabetic characters
+s = "HelloWorld"
+print(s.isalpha())             #  True
 
+s2 = "Hello123"
+print(s2.isalpha())            # False
 
+#Contains a dot,not a numeric char
+test = "12.3" 
+print(test.isdecimal(), test.isdigit(), test.isnumeric())    # False False False 
+test =  "19"
+print(test.isdecimal(), test.isdigit(), test.isnumeric())    # True True True
 
+#Contains non-numeric character
 
+test =  "20d19"
+print(test.isdecimal(), test.isdigit(), test.isnumeric())    # False False False
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+test =  "hgd"
+print(test.isdecimal(), test.isdigit(), test.isnumeric())    # False False False
 
 
 #5.Replace & Modify Method
 
-#1.Replace(old,new)
+#1.Replace(old,new)=Replaces occurrences of old with new.
 text = "Python is powerful"
+text = "Python is powerful"
+print(text.replace(' ',''))           #Pythonispowerful
+
+s = "I like python"
+print(s.replace("python","DS"))        #I like DS
 
 
+#2.translate(table)=Replaces characters using a translation table.
+
+s = "abcde@145"
+print(s.translate(str.maketrans("ac@5","xy!*")))          #xbyde!14*
 
 
+#3.maketrans()=Creates a translation table for translate().(ASCII value)
 
+text = "abcde@145"
+print(text.maketrans("ac@5","xy!*"))                      #{97: 120, 99: 121, 64: 33, 53: 42}
 
-
-
-
-
-
-
-
-
-
-#7.Whitespace & Trimmig Method
+#6. Splitting & Joining Methods
+#1.split(sep)=split(sep)
 
 #Strip(char)=spliting a string into a list using the specified separator(sep)
 
 text = "apple,banana,cherry,grape"
-result1 = text.split(",")   #['apple', 'banana', 'cherry', 'grape']
-result2 = text.split('.')   #is not changeing with other key only it is allowing ","
-print(result1)
-print(result2)
+result1 = text.split(",")  
+result2 = text.split('a')   #is not changeing with other key only it is allowing ","
+print(result1)               # ['apple', 'banana', 'cherry', 'grape']
+print(result2)               #['', 'pple,b', 'n', 'n', ',cherry,gr', 'pe']
 
 #rsplit(sep)=Splits a string into a list from the right the separator
 
@@ -302,40 +330,62 @@ text = "apple,ball,cat,dog,eye,fun"
 result1 = text.rsplit(",", 2)   #divide according to the number we have given dived to right
 result2 = text.rsplit(",", 3)      
 print(result1)                  #['apple,ball,cat,dog', 'eye', 'fun'] 
-print(result2)                
-
-
-#lsplit(sep)=Splits a string into a list from the left the separator
-text = "apple,ball,cat,dog,eye,fun"
-result1 = text.lsplit(",", 2) 
-result2 = text.lsplit(",", 3) 
-print(result1)
-print(result2)
+print(result2)                   #['apple,ball,cat', 'dog', 'eye', 'fun']
 
 
 #3.splitlines()=split a string at line breaks(\n)and return a list of lines
 
-text = "apple\nball\ncat\ndog\neye\nfun"
-print(text.splitlines())    #['apple', 'ball', 'cat', 'dog', 'eye', 'fun']
+text = '''apple 
+ball 
+cat 
+dog 
+eye 
+fun'''
+print(text.splitlines(' '))              #['apple \n', 'ball \n', 'cat \n', 'dog \n', 'eye \n', 'fun']
+
+#join(iterable)=Joins elements with a separator.
+
+cars = ('BMW', 'Ferrari', 'Jeep', 'Porsche')
+print('@'.join(cars))                 #BMW@Ferrari@Jeep@Porsche
+print('_'.join(cars))                 #BMW_Ferrari_Jeep_Porsche
+print('1'.join(cars))                 #BMW1Ferrari1Jeep1Porsche
+print(', '.join(cars))                #BBMW, Ferrari, Jeep, Porsche
+
+#partition(sep)=Splits into a 3-part tuple at first sep.
+
+x = "Python Strings . Methods"
+print(x.partition('.'))               #('Python Strings ', '.', ' Methods')
+
+#rpartition(sep)=Splits into a 3-part tuple at last sep.
+
+x = "5.Python Strings . Methods"
+print(x.rpartition('.'))              #('5.Python Strings ', '.', ' Methods')
+
+#7. Whitespace & Trimming Methods
+#strip(chars)=Removes leading and trailing characters (default: spaces).
+
+t = "....example..."
+print(t.strip('.'))
+
+t = "          python string methods         "
+print(t.strip())                                        #python string methods
+
+#lstrip(chars)=Removes leading characters.
+t = "          Hello world           "
+print(t.lstrip())                                        # #Hello world
+
+
+#rstrip(chars)=Removes trailing characters.
+
+t = "**pythonprogram***"
+print(t.rstrip())                                     
+#encode(encoding)=Converts the string to bytes.
+
+text = "Hello 🙂"
+print(text.encode())                   #b'Hello \xf0\x9f\x99\x82'     
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#decode(encoding)=Converts bytes back to string.
+s=text.encode()
+print(s.decode())                     #Hello 🙂
