@@ -1,12 +1,14 @@
-#TRue are False
-items = ['shoes','smartwatch','phone',laptop','airpods','toycar']
-print('welcome to amazon store'.center(50,'*'))
-searchinput=input("Enter the items:").lower()
-
+# If-else:
+items=['shoes','smartwatch','phone','laptop','airpods','toycar']
+print('Welcome to Amazon store'.center(50,'*'))
+searchinput=input("Enter the item:").lower()
 if searchinput in items:
-   print(f"{searchinput} found. Buy now!!!")
+    print(f"{searchinput} fouund. Buy now!!!")                                 #output:Enter the item:shoes
 else:
-   print(f'{searchinput} is out of stock now. we will notify you.')
+    print(f"{searchinput}, is out of stock.we will notify")                    #shoes fouund. Buy now!!!
+                                                                               #Enter the item:Ac
+                                                                               # ac, is out of stock.we will notify
+
 
 #Weekend Budget plan
 amount=input(input("Enter hte amont you can spend for weekend: "))
@@ -17,7 +19,7 @@ elif amount>15000:
 elif amount>10000:
    print("clublingg")
 elif print>5000:
-   print("cafe/Dinner")
+   print("cafe/Dinner")                                   #
 elif amount>2000:
    print("maintancess")
 elif amount>500:
@@ -25,5 +27,10 @@ elif amount>500:
 elif amount>100:
    print("enjoy in pg")
 else:
-   print("sleep and watch movie in phone")
+   print("sleep and watch movie in phone")                     #Enter the amount youucan spend for the weekend:800
+                                                               #save the money     
+                                                               # #output:Enter the amount youucan spend for the weekend:5000
+                                                               #go to movie
+
+#                                                              
 

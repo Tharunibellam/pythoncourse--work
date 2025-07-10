@@ -69,22 +69,22 @@ set = {4, 5, 3, 8, 9, 0, 1}
 #print(float(set))                       #Not allowed
 print(str(set))                          #{0, 1, 3, 4, 5, 8, 9}
 print(bool(set))                         #True
-print(tuple(set))                        #TypeError: 'tuple' object is not callable
-set1 = {1, 2, 3, 4, 5}                    #
-print(tuple(set1))                        #
-print(list(set))                           #[0, 1, 3, 4, 5, 8, 9]
-#print(dict(set))                          #Must be iterable of key-value pairs
+print(tuple(set))                        #(0, 1, 3, 4, 5, 8, 9)
+set1 = {1, 2, 3, 4, 5}                    
+print(tuple(set1))                        #(1, 2, 3, 4, 5)
+print(list(set))                          #[0, 1, 3, 4, 5, 8, 9]
+#print(dict(set))                         #Must be iterable of key-value pairs
 
 
 #7. Converting from dict
 dict = {1:7, 2:8, 3:7}
-#print(int(dict))
-#print(float(dict))
+#print(int(dict))                         #Type error
+#print(float(dict))                       #Type error
 print(str(dict))                          #{1: 7, 2: 8, 3: 7}
 print(bool(dict))                         #True
-print(tuple(dict))                        #
-print(set(dict))                          #
-print(list(dict))                         #
+print(tuple(dict))                        #(1, 2, 3)
+print(set(dict))                          #{1, 2, 3}
+print(list(dict))                         #[1, 2, 3]	
 
 
 
@@ -92,31 +92,32 @@ print(list(dict))                         #
 
 b1 = False
 
-print(int(b1))
-print(float(b1))
-print(str(b1))
-print(list(b1))
-print(tuple(b1))
-print(set(b1))
-print(dict(b1))
-
+print(int(b1))                              #0
+print(float(b1))                            #0.0
+print(str(b1))                              #'False'
+#print(list(b1))                            #TypeError: 'list' object is not iterable
+#print(tuple(b1))                           #TypeError: 'tuple' object is not iterable
+#print(set(b1))                             #TypeError: 'set' object is not iterable
+#print(dict(b1))                            #TypeError: 'bool' object is not iterable
+  
 b2 = True
-print(int(b2))
-print(float(b2))
-print(str(b2))
-print(list(b2))
-print(tuple(b2))
-print(set(b2))
-print(dict(b2))
+
+print(int(b2))                               #1
+print(float(b2))                             #1.0
+print(str(b2))                               #True
+#print(list(b2))                             #TypeError: 'list' object is not iterable
+#print(tuple(b2))                            #TypeError: 'tuple' object is not iterable
+#print(set(b2))                              #TypeError: 'set' object is not iterable
+#print(dict(b2))                             #TypeError: 'bool' object is not iterable
 
 
 #9. Dictionary Conversion
 
-dict = [('name', 'ram'), ('batch', '21'), ('cource', 'Datascience')]
-print(int(b))
-print(complex(b))
-print(str(b))
-print(bool(b))
-print(tuple(b))
-print(set(b))
-print(dict(b))
+d = [('name', 'ram'), ('batch', '21'), ('cource', 'Datascience')]
+#print(int(d))                               #TypeError: int() argument must be a string, a bytes-like object or a real number, not 'list'
+#print(float(d))                             #TypeError: float() argument must be a string or a real number, not 'list'
+print(str(d))                                #[('name', 'ram'), ('batch', '21'), ('cource', 'Datascience')]
+print(bool(d))                               #True
+print(tuple(d))                              #(('name', 'ram'), ('batch', '21'), ('cource', 'Datascience'))
+print(set(d))                                #{('name', 'ram'), ('cource', 'Datascience'), ('batch', '21')}
+print(list(d))                               #[('name', 'ram'), ('batch', '21'), ('cource', 'Datascience')]

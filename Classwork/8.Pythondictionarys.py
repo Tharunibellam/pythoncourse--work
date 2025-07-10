@@ -158,3 +158,11 @@ print(word_count(text))                                    #{'the': 3, 'quick': 
 
 
 
+d = [('name', 'ram'), ('batch', '21'), ('cource', 'Datascience')]
+#print(int(d))        #TypeError: int() argument must be a string, a bytes-like object or a real number, not 'list'
+#print(float(d))      #TypeError: float() argument must be a string or a real number, not 'list'
+print(str(d))         #[('name', 'ram'), ('batch', '21'), ('cource', 'Datascience')]
+print(bool(d))        #True
+print(tuple(d))       #(('name', 'ram'), ('batch', '21'), ('cource', 'Datascience'))
+print(set(d))         #{('name', 'ram'), ('cource', 'Datascience'), ('batch', '21')}
+print(list(d))        #[('name', 'ram'), ('batch', '21'), ('cource', 'Datascience')]
