@@ -106,11 +106,6 @@ tuple[4].append(1)
 print(tuple)
 
 
-
-
-
-
-
 #6.immutability and Tuple Behaviour
 nested_tuple = (1,[2,3])
 nested_tuple[1][1] = 200                                    #(1,[2,200])

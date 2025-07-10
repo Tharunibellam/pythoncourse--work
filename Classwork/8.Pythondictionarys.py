@@ -63,7 +63,7 @@ print(list(person.keys()))
 
 print(person.values())
 print(list(person.values()))                       #dict_values(['google', '212t1', 'Ds', '15', 'ECE'])        
-['google', '212t1', 'Ds', '15', 'ECE']
+
 
 #dict.items()= Returns a view object containing all key-value pairs as tuples
 
@@ -155,3 +155,6 @@ def word_count(sentence):
     return counts
 text = 'the quick brown fox jumps over the lazy dog the fox was quick'
 print(word_count(text))                                    #{'the': 3, 'quick': 2, 'brown': 1, 'fox': 2, 'jumps': 1, 'over': 1, 'lazy': 1, 'dog': 1, 'was': 1}
+
+
+
