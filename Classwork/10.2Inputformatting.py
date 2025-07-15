@@ -34,7 +34,7 @@ print(dimensions)                                                               
 
 #9.Set Input=Use case: Selected image IDs where duplicates must be removed (e.g., in a photo-sharing app).
 selected_ids = set(map(int, input("Enter selected image IDS:").split()))           #Enter selected image IDS:309 429 205 206 157
-print(selected_ids)                                                                #{205, 206, 429, 309, 157}
+print(selected_ids)                                                               #{205, 206, 429, 309, 157}
 
 #10. Dictionary Input using eval()=Use case: When entering structured data like configuration settings or user profiles.
 profile = eval(input("Enter user profile as a dictionary: "))                      #Enter user profile as a dictionary: {'name': 'srinivas', 'age': 21,' course': 'datascience'}
@@ -43,4 +43,4 @@ print(profile)                                                                  
 #11. Multiple Inputs with Unpacking=Use case: Login form or payment details.
 email, password = input("Enter email and password: ").split()                       #Enter email and password: name412 password@123
 print("email:", email)                                                              #email: name412
-print("password:", password)                                                        #password: password@123         
+print("password:", password)                                                      #password: password@123         

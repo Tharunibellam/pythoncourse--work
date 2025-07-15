@@ -63,7 +63,7 @@ print(result)                                  #True
 
 #g. Superset (>= or issuperset() method)=Checks if one set contains all elements of another.Syntax: set1 >= set2 or set1.issuperset(set2)
 set1 = {29, 48, 20.5, 45, 56}
-set1 = {12, 45, 32, 67}
+set2 = {12, 45, 32, 67}
 result1 = set1 >= set2
 print(result1)                                  #False
 
@@ -75,7 +75,7 @@ print(result)                                   #True
 #h. Disjoint Sets (isdisjoint() method)=Returns True if two sets have no common elements.
 set1 = {29, 48, 20.5, 45, 56}
 set1 = {12, 45, 32, 67}
-print(set1.isdisjoint(set2))                    #True
+print(set1.isdisjoint(set2))                    #False
 
 #4. Built-in Methods for Sets
 #add(element)=Adds an element to the set
