@@ -1,7 +1,7 @@
 #Control Statements
 #Loops help automate repetitive tasks
 #FOR LOOP=A for loop is used to iterate over items like lists, strings, or ranges.
-for i in range(5):  # i takes values from 0 to 4
+'''for i in range(5):  # i takes values from 0 to 4
     print(i)       # prints numbers 0 through 4
 
 # Example2: Using a for loop to iterate over a list and print each item squared
@@ -66,7 +66,7 @@ while attempts < max_attempts:
      attempts += 1
 
 else:
-  print("Account locked due to too many failed attempts.")              #Enter your PIN: 546
+  print("Account locked due to too many failed attempts.")     '''         #Enter your PIN: 546
                                                                         #Incorrect PIN. Try again.
                                                                         #Enter your PIN: 707
 #Example
@@ -80,3 +80,104 @@ while count <= 5:
                                                                         #Count is: 3
                                                                         #Count is: 4
                                                                         #Count is: 5
+
+#FOR LOOP WITH ELSE=The else block runs only if the loop completes without encountering a break.
+# 1 = Unread, 0 = Read
+notifications = [0, 0, 0, 1]
+for notification in notifications:
+ if notification == 1:
+  print("You have unread notifications!")
+  break
+
+else:
+ print("All caught up!")                  #You have unread notifications!
+#Example                                                       
+numbers = [1, 5, 43, 2, 7, 9, 19, 10]
+target = 100
+
+for num in numbers:
+    if num == target:
+        print("Target found, exiting loop.")
+        break
+else:
+    print("Target not found. Loop completed all items.")            #Target not found. Loop completed all items.
+
+#WHILE LOOP WITH ELSE=Just like with for, the else runs only if the while loop completes without a break.
+i = 5
+while i > 0:
+    print(i)
+    i -= 1
+else:
+    print("Liftoff!")          #Liftoff!
+
+#Example
+nums = [2, 4, 6, 8, 10]
+target = 7
+i = 0
+
+while i < len(nums):
+    if nums[i] == target:
+        print("Found target:", target)
+        break
+    i += 1
+else:
+    print("Target not found.")            #Target not found.
+#Example
+while i < len(nums):
+    n = nums[i]
+    if n > 1:
+        d = 2
+        while d < n:
+            if n % d == 0:
+                print("Composite found:", n)
+                break
+            d += 1
+        else:
+            i += 1
+            continue
+        break
+else:
+    print("No composite numbers.")                   #No composite numbers.
+#break
+#Example – for loop:
+for i in range(5):
+    if i == 3:
+        break  # exit loop early when i == 3
+    print(i)                                      # Output: 0,1,2
+#Example – while loop:
+i = 0
+while i < 5:
+    if i == 3:
+        break
+    print(i)
+    i += 1                                      # Output: 0,1,2
+
+#break Statement in Python
+for i in range(5):
+    if i == 3:
+        continue  # skip printing 3
+    print(i)                                  # Output: 0,1,2,4
+
+#Example – while loop:
+i = 0
+while i < 6:
+    i += 1
+    if i % 2 == 0:
+        continue  # skip even numbers
+    print(i)                                      #Output: 1,3,5
+
+#assert
+x = 10
+assert x > 0, "x must be positive"
+x = 5
+assert x > 0, "x must be positive"
+
+#Example – in a function for sanity checks:
+
+x = "hello"
+assert x == "hello"
+# nothing happens because condition is True
+
+assert x == "goodbye", "x must be 'goodbye'"
+                                                    # raises: AssertionError: x must be 'goodbye'
+
