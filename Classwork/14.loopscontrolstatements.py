@@ -72,7 +72,7 @@ else:
 #Example
 count = 1  # Initialize counter
 
-while count <= 5:
+while count <= 5: 
     print(f"Count is: {count}")
     count += 1  # Increment the counter to avoid infinite loop1234
                                                                         #Count is: 1

@@ -128,3 +128,5 @@ if a + b > c and b + c > a and a + c > b:  # Valid triangle
         print("Scalene triangle")                           #Enter side c: 8
 else:                                                       #Scalene triangle
     print("Not a valid triangle")'''
+
+
