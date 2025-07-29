@@ -182,6 +182,19 @@ def sumofdigits(n):
         
 n=int(input("Enter the digits: "))
       
+#lambda funtions
 
 
-            
+
+#map in funtions=
+
+
+s=sorted([1, 3], [2, 1], [4, 5])(s,key=lambda i:i[1])
+print(s)
+s=sorted([1, 3], [2, 1], [4, 5])(s,key=lambda i:i[-1])
+print(s)
+l=[[23,34,56],[21,56,89,30],[78,90,54,35],[43,67,3,17]]  
+s=sorted(l,key=lambda i: i[0])
+print(s)
+
+#filter funtion=if the condition is true then it will return the value
