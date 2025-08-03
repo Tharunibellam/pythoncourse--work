@@ -1,5 +1,6 @@
 # Function with no parameters
 #return=the value that is returned by the function=will stop there
+'''
 def say_hello():
     print("Hello!")
 
@@ -35,15 +36,15 @@ print(multiply(3, 4))             #12
 
 #Function Arguments
 #1.Positional Arguments
-'''
+
 def greet(name, age):
     print(f"Hi, I am {name}")
     print(f"My age is {age}")
 
-greet("Alice", 30)  '''                               #Hi, I am Alice
+greet("Alice", 30)                                   #Hi, I am Alice
                                                       #My age is 30
 #example 
-'''
+
 data=('abc@gmail','abc@123')
 def login(mail,password,username="Hello"):
     if mail == data[0] and password == data[1]:
@@ -55,8 +56,58 @@ mail=input("Enterthe mail: ")
 password=input("Enter the password: ")
 
 login(mail,password,username)                  #Enter the username: hdguf
-    '''                                        #Enterthe mail: fjhwuf
+                                            #Enterthe mail: fjhwuf
                                                #Enter the password: dje
+ #Funtions practice problems
+#Q1
+def sum(a,b):
+    return a + b
+print(sum(5 , 10))                  #15
+  
+#q2
+def square(n):
+    return n*n
+print(square(4))                    #16
+
+#Q3
+def area_of_circle(radius):
+    return 3.14 * radius * radius
+
+radius = float(input("Enter radius: "))
+print("Area of circle is:", area_of_circle(radius))      #Enter radius: 3
+                                                       #Area of circle is: 28.259999999999998
+#Q4
+def greet(name="Alice"):
+    print(f"Hello, {name}!")
+
+  #Q5
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32           
+c = float(input("Enter temperature in Celsius: "))                         #Enter temperature in Celsius: 37
+print("Temperature in Fahrenheit:", celsius_to_fahrenheit(c))              #Temperature in Fahrenheit: 98.6
+  
+#Q6
+def multiply(x, y, z):
+    return x * y * z
+print(multiply(2, 3, 4))             #24
+'''
+#Q7
+def simple_interest(principle, Rate, Time):
+    return (principle * Rate * Time) / 100
+principle = float(input("Enter the principle amount: "))
+Rate = float(input("Enter the rate of interest: "))
+Time = float(input("Enter the time in years:"))
+print("Simple Interest is:", simple_interest(principle, Rate, Time))  #Enter the principle amount: 1000
+  
+  
+  
+  
+  
+  
+  
+  
+  
+'''  
                                                #hdguf - Invalid login
 #2.Keyword Arguments
 def greet(name, age):
@@ -124,7 +175,7 @@ outer()
 print(len("Python"))  # uses built-in len()
 
 len = 5
-print(len("test"))    # TypeError! We've shadowed the built-in len
+print(len())    # TypeError! We've shadowed the built-in len
 
 
 
@@ -142,6 +193,7 @@ def outer():
 outer()
 print("module says:", x)
 
+''''''
 
 
 
@@ -194,52 +246,6 @@ print("module says:", x)
 
 
 
-#Recursive Functions 
-def display(s,ind):
-    if ind==len(s):
-        return
-    print(s[ind])
-    display(s,ind+1)
-s="python program"
-display(s,0)
-
-#reverse
-def display(s,ind):
-    if ind==-1:
-        return
-    print(s,[ind],end='')
-    display(s,ind-1)
-
-s="python is fun"
-display(s,len(s)-1)
-
-#type 2 reverese
-def display(s,ind):
-    if ind==-1:
-        return
-    print("After:",[ind],end='')
-    display("After:",ind-1)
-
-s="python is fun"
-display(s,len(s)-1)
-
-#sum of digits with out recuring
-n = int(input("Enter the number: "))
-sumofdigit = 0
-while n > 0:
-    sumofdigit += (n % 10)
-    n = n // 10
-print(sumofdigit)
-
-#with recurtion
-def sumofdigits(n):
-    if n>0:
-        return 0
-        sumofdigit=(n%10)+sumofdigit(n//10)
-        return 
-        
-n=int(input("Enter the digits: "))
-      
 #lambda funtions
 #Even or Odd
 def evenorodd(n):
@@ -251,8 +257,8 @@ evenorodd(12)
 evenorodd(13)
 #lambda function for even or odd
 evenorodd_lambda= lambda n: "Even" if n%2==0 else "Odd"
-print("evenorodd_lambda:",evenorodd_lambda(5))
-print("evenorodd_lambda:",evenorodd_lambda(52))
+print("evenorodd_lambda:",evenorodd_lambda(5))                   #evenorodd_lambda: Odd
+print("evenorodd_lambda:",evenorodd_lambda(52))                  #evenorodd_lambda: Even
 
 #Square of a number
 def square(n):
@@ -262,7 +268,8 @@ square(5)
 #lamdba funtion for square
 squares_lambda= lambda n: n*n
 print("Squares_lambda:",squares_lambda(5))
-print("squares_lambda:",squares_lambda(52))
+print("squares_lambda:",squares_lambda(52))                    #Squares_lambda: 25
+                                                               #squares_lambda: 2704
 
 
 #map in funtions=
@@ -274,17 +281,19 @@ sqa([4,5,6,7])
 
 #map funtion
 squl_lambda= list(map(lambda i:i**2, [1,2,3,4,5]))
-print("squl_lambda",squl_lambda)
+print("squl_lambda",squl_lambda)                              #squl_lambda [1, 4, 9, 16, 25]
+
 v='aeiou'
-squl_lambda= list(map(lambda i:'*' if i  in v else i,'python'))
+squl_lambda= list(map(lambda i:'*' if i  in v else i,'python'))              #squl_lambda pyth*n
 print("squl_lambda",''.join(squl_lambda))
 
-s=sorted([1, 3], [2, 1], [4, 5])(s,key=lambda i:i[1])
-print(s)
+l = [[1, 3], [2, 1], [4, 5]]
+s = sorted(l, key=lambda i: i[1])
+print(s)                                                       #[[2, 1], [1, 3], [4, 5]]
 s=sorted([1, 3], [2, 1], [4, 5])(s,key=lambda i:i[-1])
 print(s)
 l=[[23,34,56],[21,56,89,30],[78,90,54,35],[43,67,3,17]]  
 s=sorted(l,key=lambda i: i[0])
 print(s)
-
+'''
 #filter funtion=if the condition is true then it will return the value
