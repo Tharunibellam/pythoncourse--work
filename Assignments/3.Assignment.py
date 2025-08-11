@@ -134,3 +134,96 @@ def run_quiz():
     print(f"\n🎉 Quiz Completed! Your score: {score}/{len(questions)}")
 
 run_quiz()
+
+
+'''🎮 Welcome to the Python Quiz Game!
+
+of print("Hello" + "World")?
+A) Hello World
+B) HelloWorld
+C) Hello+World
+D) Error
+Your answer (A/B/C/D): b
+✅ Correct!
+
+Question 2: What is the output of print(2 * 3 + 1)?
+A) 7
+B) 9
+C) 8
+D) 5
+Your answer (A/B/C/D): a
+✅ Correct!
+
+Question 3: Which of the following is a valid variable name in Python?
+A) 1number
+B) number_1
+C) number-1
+D) number one
+Your answer (A/B/C/D): b
+✅ Correct!
+
+Question 4: Which one is a Python loop keyword?
+A) repeat
+B) foreach
+C) for
+D) loop
+Your answer (A/B/C/D): c
+✅ Correct!
+
+Question 5: Which function is used to get input from the user in Python?
+A) get()
+B) input()
+C) read()
+D) scan()
+Your answer (A/B/C/D): b
+✅ Correct!
+
+Question 6: How do you start a comment in Python?
+A) //
+B) <!--
+C) #
+D) **
+Your answer (A/B/C/D): c
+✅ Correct!
+
+Question 7: Which of the following is a correct list?
+A) [1, 2, 3]
+B) (1, 2, 3)
+C) {1, 2, 3}
+D) <1, 2, 3>
+Your answer (A/B/C/D): a
+✅ Correct!
+
+Question 8: Which of the following is NOT a Python data type?
+A) int
+B) str
+C) real
+D) list
+Your answer (A/B/C/D): c
+✅ Correct!
+
+Question 9: What is the output of print(len("Python"))?
+A) 5
+B) 6
+C) 7
+D) Error
+Your answer (A/B/C/D): b
+✅ Correct!
+
+Question 10: Which of the following is a mutable data type?
+A) tuple
+B) string
+C) list
+D) int
+Your answer (A/B/C/D): c
+✅ Correct!
+
+Question 11: What does a function return by default if there is no return statement?
+A) 0
+B) 1
+C) None
+D) Error
+Your answer (A/B/C/D): c
+✅ Correct!
+
+🎉 Quiz Completed! Your score: 11/11'''

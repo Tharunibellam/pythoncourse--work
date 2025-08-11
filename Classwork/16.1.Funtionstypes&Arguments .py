@@ -56,7 +56,7 @@ mail=input("Enterthe mail: ")
 password=input("Enter the password: ")
 
 login(mail,password,username)                  #Enter the username: hdguf
-                                            #Enterthe mail: fjhwuf
+                                               #Enterthe mail: fjhwuf
                                                #Enter the password: dje
  #Funtions practice problems
 #Q1
@@ -98,6 +98,7 @@ principle = float(input("Enter the principle amount: "))
 Rate = float(input("Enter the rate of interest: "))
 Time = float(input("Enter the time in years:"))
 print("Simple Interest is:", simple_interest(principle, Rate, Time))  #Enter the principle amount: 1000
+
   
   
   
