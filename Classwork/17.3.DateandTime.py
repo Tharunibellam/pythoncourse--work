@@ -159,11 +159,82 @@ print(fdate,fmins)
 10 August, 2025
 10 August, 13:06:03
 '''
+#1. Get Current Date and Time
 
+import datetime
 
+now = datetime.datetime.now()
+print("Current Date & Time:", now)
+print("Date:", now.date())
+print("Time:", now.time())
 
+#2. Format Date & Time using strftime()
+#Frequently asked about formatting codes (%Y, %m, %d, %H, %M, %S, %A, %B, %p).
+now = datetime.datetime.now()
+print(now.strftime("%Y-%m-%d %H:%M:%S"))   # 2025-08-16 19:45:12
+print(now.strftime("%A, %B %d, %Y"))       # Saturday, August 16, 2025
+print(now.strftime("%I:%M %p"))            # 07:45 PM
 
+#3. Difference Between Two Dates
+date1 = datetime.date(2025, 8, 16)
+date2 = datetime.date(2024, 8, 16)
 
+diff = date1 - date2
+print("Difference:", diff.days, "days")
+
+#4. Add or Subtract Days from a Date
+from datetime import datetime, timedelta
+
+today = datetime.today()
+print("Today:", today)
+
+after_10_days = today + timedelta(days=10)
+print("After 10 Days:", after_10_days)
+
+before_30_days = today - timedelta(days=30)
+print("Before 30 Days:", before_30_days)
+
+#5. Check Leap Year
+import calendar
+
+year = 2024
+print(year, "is leap year?", calendar.isleap(year))
+
+#6.Print Calendar of a Month/Year
+import calendar
+
+print(calendar.month(2025, 8))   # August 2025
+print(calendar.calendar(2025))  # Whole year
+
+#7. Convert String to Date
+from datetime import datetime
+
+date_string = "16-08-2025"
+date_obj = datetime.strptime(date_string, "%d-%m-%Y")
+print("Converted Date:", date_obj)
+
+#8. Get Weekday of a Date
+import datetime
+
+date_obj = datetime.date(2025, 8, 16)
+print("Weekday (0=Mon):", date_obj.weekday())
+print("Full Name:", date_obj.strftime("%A"))
+
+#9. Stop Execution for Few Seconds
+import time
+
+print("Start")
+time.sleep(3)   # Wait for 3 seconds
+print("End")
+#10. Timer Program (Start & End Time)
+import time
+
+start = time.time()
+for i in range(1000000):
+    pass
+end = time.time()
+
+print("Execution Time:", end - start, "seconds")
 
 
 

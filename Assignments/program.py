@@ -1,158 +1,208 @@
 # my_programs.py
 
-# 1. Check if brackets are balanced
-def check_balanced_brackets():
-    print("🧠 Program: Check if Brackets are Balanced")
+# program.py
+
+# 1. Longest Consecutive Sequence (O(n) using dict)
+def longest_consecutive_sequence():
+    print("Program: Longest Consecutive Sequence (O(n) using dictionary)")
     print("""
-def is_balanced(expr):
-    stack = []
-    mapping = {')': '(', ']': '[', '}': '{'}
-    for char in expr:
-        if char in mapping.values():
-            stack.append(char)
-        elif char in mapping:
-            if not stack or stack.pop() != mapping[char]:
+def longest_consecutive(nums):
+    num_set = set(nums)
+    longest = 0
+    for num in num_set:
+        if num - 1 not in num_set:  # start of a sequence
+            length = 1
+            while num + length in num_set:
+                length += 1
+            longest = max(longest, length)
+    return longest
+""")
+    print("Test Case: longest_consecutive([100, 4, 200, 1, 3, 2]) -> 4")
+    print("Explanation: Sequence [1,2,3,4] has length 4.")
+
+
+# 2. Trie Implementation
+def trie_program():
+    print("Program: Trie with insert and search_prefix")
+    print("""
+class Trie:
+    def __init__(self):
+        self.root = {}
+
+    def insert(self, word):
+        node = self.root
+        for ch in word:
+            node = node.setdefault(ch, {})
+        node['$'] = True  # end marker
+
+    def search_prefix(self, prefix):
+        node = self.root
+        for ch in prefix:
+            if ch not in node:
                 return False
-    return not stack
+            node = node[ch]
+        return True
 """)
-    print("🧪 Test Case 1: is_balanced('{[()]}') -> True")
-    print("🧪 Test Case 2: is_balanced('{[(])}') -> False")
-    print("📝 Explanation: Uses a stack to ensure every opening bracket has a matching closing bracket in the correct order.")
+    print("Test Case: Insert ['apple','app']; search_prefix('app') -> True")
+    print("Test Case: search_prefix('apt') -> False")
+    print("Explanation: Dictionary-based trie stores words by characters.")
 
-# 2. Second largest number without sort
-def second_largest():
-    print("🧠 Program: Find Second Largest Number without sort()")
+
+# 3. Power of Two (bit manipulation)
+def power_of_two():
+    print("Program: Check if Number is Power of Two")
     print("""
-def second_largest_number(lst):
-    first = second = float('-inf')
-    for num in lst:
-        if num > first:
-            second = first
-            first = num
-        elif first > num > second:
-            second = num
-    return second
+def is_power_of_two(n):
+    return n > 0 and (n & (n - 1)) == 0
 """)
-    print("🧪 Test Case 1: second_largest_number([1,5,2,4]) -> 4")
-    print("🧪 Test Case 2: second_largest_number([10,10,9]) -> 9")
-    print("📝 Explanation: Tracks largest and second largest while iterating without sorting.")
+    print("Test Case 1: is_power_of_two(8) -> True")
+    print("Test Case 2: is_power_of_two(10) -> False")
+    print("Explanation: Power of 2 has only one bit set.")
 
-# 3. Palindrome number
-def palindrome_number():
-    print("🧠 Program: Check if a Number is Palindrome")
-    print("""
-def is_palindrome(num):
-    return str(num) == str(num)[::-1]
-""")
-    print("🧪 Test Case 1: is_palindrome(121) -> True")
-    print("🧪 Test Case 2: is_palindrome(123) -> False")
-    print("📝 Explanation: Converts number to string and checks if it equals its reverse.")
 
-# 4. Count vowels and consonants
-def vowels_consonants_count():
-    print("🧠 Program: Count Vowels and Consonants")
+# 4. Shortest Path in Binary Matrix (BFS)
+def shortest_path_matrix():
+    print("Program: Shortest Path in Binary Matrix using BFS")
     print("""
-def count_vowels_consonants(s):
-    vowels = 'aeiouAEIOU'
-    v_count = sum(1 for ch in s if ch.isalpha() and ch in vowels)
-    c_count = sum(1 for ch in s if ch.isalpha() and ch not in vowels)
-    return v_count, c_count
-""")
-    print("🧪 Test Case 1: count_vowels_consonants('hello') -> (2, 3)")
-    print("🧪 Test Case 2: count_vowels_consonants('Python') -> (1, 5)")
-    print("📝 Explanation: Loops through characters and counts vowels/consonants separately.")
+from collections import deque
 
-# 5. Binary search
-def binary_search_program():
-    print("🧠 Program: Binary Search Algorithm")
-    print("""
-def binary_search(lst, target):
-    low, high = 0, len(lst)-1
-    while low <= high:
-        mid = (low + high) // 2
-        if lst[mid] == target:
-            return mid
-        elif lst[mid] < target:
-            low = mid + 1
-        else:
-            high = mid - 1
+def shortest_path_binary_matrix(grid):
+    n = len(grid)
+    if grid[0][0] or grid[n-1][n-1]:
+        return -1
+    directions = [(1,0),(0,1),(-1,0),(0,-1)]
+    queue = deque([(0,0,1)])
+    visited = set((0,0))
+    while queue:
+        x,y,d = queue.popleft()
+        if (x,y) == (n-1,n-1):
+            return d
+        for dx,dy in directions:
+            nx,ny = x+dx,y+dy
+            if 0<=nx<n and 0<=ny<n and grid[nx][ny]==0 and (nx,ny) not in visited:
+                visited.add((nx,ny))
+                queue.append((nx,ny,d+1))
     return -1
 """)
-    print("🧪 Test Case 1: binary_search([1,2,3,4,5], 4) -> 3")
-    print("🧪 Test Case 2: binary_search([10,20,30,40], 25) -> -1")
-    print("📝 Explanation: Repeatedly halves the search space to find the target index.")
+    print("Test Case: shortest_path_binary_matrix([[0,0,0],[1,1,0],[1,1,0]]) -> 4")
+    print("Explanation: BFS explores all neighbors layer by layer.")
 
-# 6. Check duplicates without set
-def contains_duplicates():
-    print("🧠 Program: Check if List has Duplicates without set()")
-    print("""
-def has_duplicates(lst):
-    seen = []
-    for item in lst:
-        if item in seen:
-            return True
-        seen.append(item)
-    return False
-""")
-    print("🧪 Test Case 1: has_duplicates([1,2,3,1]) -> True")
-    print("🧪 Test Case 2: has_duplicates([1,2,3]) -> False")
-    print("📝 Explanation: Uses a list to keep track of seen elements and checks for repetition.")
 
-# 7. All prime numbers in range
-def primes_in_range():
-    print("🧠 Program: Generate Prime Numbers in Range")
+# 5. Reverse Words in String (manual)
+def reverse_words():
+    print("Program: Reverse Words in a String (no split/join)")
     print("""
-def primes_between(start, end):
-    primes = []
-    for num in range(start, end+1):
-        if num > 1:
-            for i in range(2, int(num**0.5)+1):
-                if num % i == 0:
-                    break
-            else:
-                primes.append(num)
-    return primes
+def reverse_words_in_string(s):
+    words, word, result = [], '', []
+    for ch in s:
+        if ch != ' ':
+            word += ch
+        elif word:
+            words.append(word)
+            word = ''
+    if word: words.append(word)
+    for i in range(len(words)-1, -1, -1):
+        result.append(words[i])
+    return ' '.join(result)
 """)
-    print("🧪 Test Case 1: primes_between(10, 20) -> [11, 13, 17, 19]")
-    print("🧪 Test Case 2: primes_between(1, 5) -> [2, 3, 5]")
-    print("📝 Explanation: Loops through range and checks divisibility up to sqrt(n).")
+    print("Test Case: reverse_words_in_string('  hello world  ') -> 'world hello'")
+    print("Explanation: Builds words manually and reverses their order.")
 
-# 8. Rotate matrix 90 degrees clockwise
-def rotate_matrix():
-    print("🧠 Program: Rotate Matrix 90° Clockwise")
-    print("""
-def rotate_matrix_90(matrix):
-    return [list(row) for row in zip(*matrix[::-1])]
-""")
-    print("🧪 Test Case 1: rotate_matrix_90([[1,2],[3,4]]) -> [[3,1],[4,2]]")
-    print("🧪 Test Case 2: rotate_matrix_90([[1,2,3],[4,5,6],[7,8,9]]) -> [[7,4,1],[8,5,2],[9,6,3]]")
-    print("📝 Explanation: Reverses rows then transposes using zip().")
 
-# 9. Check if two strings are permutations
-def are_permutations():
-    print("🧠 Program: Check if Two Strings are Permutations")
+# 6. Min Stack
+def min_stack_program():
+    print("Program: Min Stack with O(1) getMin")
     print("""
-def is_permutation(s1, s2):
-    return sorted(s1) == sorted(s2)
-""")
-    print("🧪 Test Case 1: is_permutation('abc', 'cab') -> True")
-    print("🧪 Test Case 2: is_permutation('hello', 'bello') -> False")
-    print("📝 Explanation: Two strings are permutations if their sorted characters match.")
+class MinStack:
+    def __init__(self):
+        self.stack = []
+        self.min_stack = []
 
-# 10. Pascal's triangle
-def pascals_triangle():
-    print("🧠 Program: Pascal's Triangle")
-    print("""
-def pascal_triangle(n):
-    triangle = [[1]]
-    for i in range(1, n):
-        row = [1]
-        for j in range(1, i):
-            row.append(triangle[i-1][j-1] + triangle[i-1][j])
-        row.append(1)
-        triangle.append(row)
-    return triangle
+    def push(self, x):
+        self.stack.append(x)
+        if not self.min_stack or x <= self.min_stack[-1]:
+            self.min_stack.append(x)
+
+    def pop(self):
+        if self.stack[-1] == self.min_stack[-1]:
+            self.min_stack.pop()
+        return self.stack.pop()
+
+    def top(self):
+        return self.stack[-1]
+
+    def getMin(self):
+        return self.min_stack[-1]
 """)
-    print("🧪 Test Case 1: pascal_triangle(3) -> [[1],[1,1],[1,2,1]]")
-    print("🧪 Test Case 2: pascal_triangle(5) -> [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]")
-    print("📝 Explanation: Builds triangle row-by-row using values from previous row.")
+    print("Test Case: push [3,5,2,1], getMin -> 1; pop -> getMin -> 2")
+    print("Explanation: min_stack keeps track of current minimums.")
+
+
+# 7. Maximum Depth of Binary Tree
+def max_depth_tree():
+    print("Program: Maximum Depth of Binary Tree (recursion)")
+    print("""
+def max_depth(tree):
+    if not tree: return 0
+    return 1 + max(max_depth(tree[1]), max_depth(tree[2]))
+""")
+    print("Test Case: max_depth([1,[2,None,None],[3,[4,None,None],None]]) -> 3")
+    print("Explanation: Recursively finds depth of left and right subtrees.")
+
+
+# 8. Group Anagrams
+def group_anagrams():
+    print("Program: Group Anagrams using Dictionary")
+    print("""
+from collections import defaultdict
+
+def group_anagrams(words):
+    d = defaultdict(list)
+    for w in words:
+        key = tuple(sorted(w))
+        d[key].append(w)
+    return list(d.values())
+""")
+    print("Test Case: group_anagrams(['eat','tea','tan','ate','nat','bat']) -> [['eat','tea','ate'],['tan','nat'],['bat']]")
+    print("Explanation: Uses sorted tuple as dictionary key.")
+
+
+# 9. First Unique Character
+def first_unique_char():
+    print("Program: First Unique Character in String")
+    print("""
+def first_unique_character(s):
+    counts = {}
+    for ch in s:
+        counts[ch] = counts.get(ch,0)+1
+    for i,ch in enumerate(s):
+        if counts[ch] == 1:
+            return i
+    return -1
+""")
+    print("Test Case 1: first_unique_character('leetcode') -> 0")
+    print("Test Case 2: first_unique_character('aabb') -> -1")
+    print("Explanation: Uses dictionary for counts, scans twice.")
+
+
+# 10. Sliding Window Maximum
+def sliding_window_maximum():
+    print("Program: Sliding Window Maximum using deque")
+    print("""
+from collections import deque
+
+def max_sliding_window(nums, k):
+    dq, result = deque(), []
+    for i, n in enumerate(nums):
+        while dq and dq[0] <= i-k:
+            dq.popleft()
+        while dq and nums[dq[-1]] < n:
+            dq.pop()
+        dq.append(i)
+        if i >= k-1:
+            result.append(nums[dq[0]])
+    return result
+""")
+    print("Test Case: max_sliding_window([1,3,-1,-3,5,3,6,7],3) -> [3,3,5,5,6,7]")
+    print("Explanation: Maintains deque of indices for sliding max.")
+    

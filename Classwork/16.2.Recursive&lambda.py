@@ -268,7 +268,8 @@ reverse(s,0)
 #q6
 def fibonacci_num(n):
      if n==0:
-     
+     return 
+    
 
 #Q7
 def sumofdigit(n):
@@ -403,7 +404,14 @@ from functools import reduce
 l=['sreekar','sai','srenidhi','harsha']
 print(list(map(lambda i: i.upper(),l)))            #['SREEKAR', 'SAI', 'SRENIDHI', 'HARSHA']
    
-#Q8
+#Example
+def is_palindrome(n):
+    if len(n) <= 1:
+        return True
+    if n[0] != n[-1]:
+        return False
+    return is_palindrome(n[1:-1])
+print(is_palindrome("madam"))
 
 
 
