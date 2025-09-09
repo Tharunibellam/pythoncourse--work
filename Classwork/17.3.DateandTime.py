@@ -108,19 +108,22 @@ print(now.second)
 3
 '''
 
-from datetime import date,time, datetime,timedelta
-today= date.today()
+from datetime import date, time, datetime, timedelta
+
+today = date.today()
 print(today)
 print(today.year)
 print(today.month)
 print(today.day)
 print(today.weekday())
 print(today.isoweekday())
-d = date(2025,12,31)
-dt = time(23,59,12)
-dt = datetime(2024,12,7,22,14,56)
+
+d = date(2025, 12, 31)
+dt = time(23, 59, 12)
+dt = datetime(2024, 12, 7, 22, 14, 56)
 print(dt)
-now=datetime.now()
+
+now = datetime.now()
 print(now)
 print(now.year)
 print(now.month)
@@ -133,11 +136,13 @@ print(now.strftime('%d/%m/%y'))
 print(now.strftime('%d %b, %y'))
 print(now.strftime('%d %B, %Y'))
 print(now.strftime('%d %B, %H:%M:%S'))
-print(now.strftime('%a %d %B, %y %H:%M:%S %P'))
-print(now.strftime('%A, %d %B, %Y %H:%M:%S %P'))
-fdate=today - timedelta(day=7)
-fmins=now + timedelta(minute=30)
-print(fdate,fmins)
+print(now.strftime('%a %d %B, %y %H:%M:%S %p'))
+print(now.strftime('%A, %d %B, %Y %H:%M:%S %p'))
+
+# Corrected part
+fdate = today - timedelta(days=7)
+fmins = now + timedelta(minutes=30)
+print(fdate, fmins)
 
 '''
 2025-08-10
@@ -236,8 +241,88 @@ end = time.time()
 
 print("Execution Time:", end - start, "seconds")
 
+import calendar 
+print ("The calendar of year 2018 is : ") 
+print (calendar.calendar(2018)) 
+
+#How do you find yesterday’s, today’s, and tomorrow’s date
+from datetime import date, timedelta
+today = date.today()
+yesterday = today - timedelta(days=1)
+tomorrow = today + timedelta(days=1)
+print(yesterday, today, tomorrow)
+
+#How to get the day of the week for a given date?
+import calendar
+day_index = calendar.weekday(2025, 8, 22)
+print(calendar.day_name[day_index])   # Friday
+
+#1. Write code to calculate the number of days between two dates.
+from datetime import date
+d1 = date(2025, 8, 22)
+d2 = date(2026, 1, 1)
+print((d2 - d1).days)   # 132
 
 
+#2. Convert current time to 12-hour format with AM/PM.
+from datetime import datetime
+now = datetime.now()
+print(now.strftime("%I:%M %p"))   # Example: 05:42 PM
 
+#3. Find the last Friday of a given month.
+import calendar
+from datetime import date
 
+year, month = 2025, 8
+last_day = calendar.monthrange(year, month)[1]
+d = date(year, month, last_day)
 
+while d.weekday() != 4:   # 4 = Friday
+    d = d.replace(day=d.day - 1)
+
+print("Last Friday:", d)
+
+#4. Print all Mondays of a given year.
+import calendar
+
+year = 2025
+for month in range(1, 13):
+    for day in calendar.monthcalendar(year, month):
+        if day[0] != 0:   # Monday column is 0
+            print(date(year, month, day[0]))
+    
+#5. Write a program to add 100 days to today’s date.
+from datetime import date, timedelta
+today = date.today()
+future_date = today + timedelta(days=100)
+print("100 days later:", future_date)
+
+#6. Find age from date of birth.
+from datetime import date
+dob = date(2000, 5, 10)
+today = date.today()
+age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+print("Age:", age)
+
+#7. Convert timestamp to datetime.
+from datetime import datetime
+ts = 1692700800   # Example timestamp
+print(datetime.fromtimestamp(ts))
+
+#8. Write code to get the week number of a given date.
+from datetime import date
+d = date(2025, 8, 22)
+print(d.isocalendar()[1])   # Week number
+
+#9. Write a program to find leap years between two years.
+import calendar
+for year in range(2000, 2030):
+    if calendar.isleap(year):
+        print(year)
+
+#10. Find the difference between two times in hours and minutes.
+from datetime import datetime
+t1 = datetime.strptime("10:30:00", "%H:%M:%S")
+t2 = datetime.strptime("13:45:00", "%H:%M:%S")
+diff = t2 - t1
+print("Hours:", diff.seconds//3600, "Minutes:", (diff.seconds//60)%60)

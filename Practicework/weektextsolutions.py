@@ -19,7 +19,7 @@ elif amount>15000:
 elif amount>10000:
    print("clublingg")
 elif print>5000:
-   print("cafe/Dinner")                                   #
+   print("cafe/Dinner")                                   
 elif amount>2000:
    print("maintancess")
 elif amount>500:
@@ -315,7 +315,7 @@ else:
     greatest = num3
 print(f'{greatest} is the greatest')         
                                    '''           #Input: 12, 45, 30
-                                              #Output: 45 is the greatest
+                                                 #Output: 45 is the greatest
 
 
 

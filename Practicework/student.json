@@ -1,0 +1,17 @@
+{
+    "name":"John Doe",
+    "subjects":[
+        {
+            "subjectName":"English",
+            "marks":50
+        },
+        {
+            "subjectName":"Maths",
+            "marks":60
+        },
+        {
+            "subjectName":"Science",
+            "marks":55
+        }
+    ]
+}
