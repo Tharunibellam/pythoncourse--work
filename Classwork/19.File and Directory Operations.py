@@ -2,10 +2,11 @@
 #if have no file it show an error
 
 try:
-    file=open('PracticeWork .txt','r')
+    with open('operators.py', 'r') as file:
+        content = file.read()
+        print(content)  # prints file content
 except FileNotFoundError:
     print("File is not present")
-    
 
 '''
 try:
